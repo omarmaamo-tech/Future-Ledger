@@ -1,0 +1,19 @@
+kind = "design-system"
+previewPath = "/futureledger/"
+title = "Futureledger"
+description = "A reusable visual system for a forward-looking expense planner where individuals can add and edit upcoming bills, such as rent due on a set date. It prioritizes clarity, confidence, and a crisp modern control feel."
+version = "1.0.0"
+id = "artifacts/futureledger"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/futureledger/" ]
+localPort = 19482
+
+[services.development]
+run = "pnpm --filter @workspace/futureledger run dev"
+
+[services.env]
+PORT = "19482"
+BASE_PATH = "/futureledger/"

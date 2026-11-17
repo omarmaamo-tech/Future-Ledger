@@ -1,0 +1,4 @@
+@import "@workspace/futureledger/styles.css";
+
+html[dir="rtl"] body { text-align: right; }
+html[dir="rtl"] .lucide { direction: ltr; }

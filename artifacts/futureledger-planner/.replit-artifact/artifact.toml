@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Futureledger Expense Planner"
+description = "A personal expense planner for adding, viewing, and editing upcoming bills by name, amount, and due date, with changes saved between visits. Uses the approved Futureledger design system."
+version = "1.0.0"
+id = "artifacts/futureledger-planner"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20536
+
+[services.development]
+run = "pnpm --filter @workspace/futureledger-planner run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/futureledger-planner", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/futureledger-planner/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20536"
+BASE_PATH = "/"
